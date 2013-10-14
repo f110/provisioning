@@ -44,7 +44,7 @@ ssh コマンドで接続したければ
 
     $ vagrant destroy
 
-としてVM を捨ててから、`cd chef && bundle exec knife solo cook asparagus`のようにchef のrecipi を流し込めば良い。
+としてVM を捨ててから、`cd chef && bundle exec knife solo cook asparagus`のようにchef のrecipe を流し込めば良い。
 
 # 注意点
 
