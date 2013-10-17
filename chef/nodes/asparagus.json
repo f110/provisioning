@@ -1,6 +1,7 @@
 {
     "run_list":[
-        "supervisord"
+        "supervisord",
+        "mysql"
     ]
 }
 

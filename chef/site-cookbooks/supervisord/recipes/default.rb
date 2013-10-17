@@ -8,5 +8,9 @@
 #
 
 package 'supervisor' do
-    action :install
+  action :install
+end
+
+service 'supervisord' do
+  action [:enable, :start]
 end

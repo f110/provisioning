@@ -8,9 +8,9 @@
 #
 
 package "mysql-server" do
-    action :install
+  action :install
 end
 
-service "mysql" do
-    action [:enable, :start]
+service "mysqld" do
+  action [:enable, :start]
 end
