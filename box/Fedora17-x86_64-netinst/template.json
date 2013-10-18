@@ -38,6 +38,7 @@
         "type": "shell",
         "scripts": [
             "../scripts/base.sh",
+            "../scripts/yum-base-fedora17.sh",
             "../scripts/vmtools.sh",
             "../scripts/vagrant.sh",
             "../scripts/chef.sh",
