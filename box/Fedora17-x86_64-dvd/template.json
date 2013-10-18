@@ -38,10 +38,9 @@
         "type": "shell",
         "scripts": [
             "../scripts/base.sh",
-            "../scripts/yum-base.sh",
-            "../scripts/yum-update.sh",
-            "../scripts/vmtools.sh",
+            "../scripts/yum-base-fedora17.sh",
             "../scripts/vagrant.sh",
+            "../scripts/vmtools.sh",
             "../scripts/chef.sh",
             "../scripts/zerodisk.sh",
             "../scripts/cleanup.sh"
