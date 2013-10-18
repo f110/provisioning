@@ -1,0 +1,16 @@
+[program:dev-app]
+user=root
+directory=/vagrant/hello_world
+stdout_logfile=/vagrant/hello_world/log/stdout.log
+stderr_logfile=/vagrant/hello_world/log/stderr.log
+autostart = true
+autorestart = true
+startsecs = 5
+
+command=bundle exec ruby app.rb
+numprocs = 1
+priority = 900
+stdout_logfile_maxbytes = 10MB
+stderr_logfile_maxbytes = 10MB
+stdout_logfile_backups = 5
+stderr_logfile_backups = 5
