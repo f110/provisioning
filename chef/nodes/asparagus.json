@@ -1,7 +1,7 @@
 {
     "run_list":[
-        "supervisord",
-        "mysql"
+        "role[db]",
+        "role[app]"
     ]
 }
 
