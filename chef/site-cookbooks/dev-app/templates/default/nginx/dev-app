@@ -3,12 +3,14 @@ upstream devapp {
 }
 
 server {
+  listen 80;
+  server_name <%= node['hostname'] %>;
   root /etc/nginx;
 
   access_log /var/log/nginx/dev-app.access.log;
   error_log /var/log/nginx/dev-app.error.log;
 
-  location /dev-app/ {
+  location / {
     proxy_pass http://devapp/;
   }
 }
