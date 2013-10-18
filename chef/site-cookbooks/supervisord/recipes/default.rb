@@ -2,7 +2,7 @@
 # Cookbook Name:: supervisord
 # Recipe:: default
 #
-# Copyright 2013, YOUR_COMPANY_NAME
+# Copyright 2013, Fumihiro Ito
 #
 # All rights reserved - Do Not Redistribute
 #
