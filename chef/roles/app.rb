@@ -5,3 +5,9 @@ run_list(
   "recipe[nginx]",
   "recipe[supervisord]"
 )
+
+override_attributes(
+  :nginx => {
+    :default_site_enabled => false,
+  }
+)
