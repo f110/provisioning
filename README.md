@@ -54,7 +54,8 @@ netinst はかなり時間がかかる。
 
 # Depends on
 
+- [VirtualBox](https://www.virtualbox.org/) >= 4.3.0
 - [Bundler](http://bundler.io/)
-- [Vagrant](http://www.vagrantup.com/) >= 1.3.4
+- [Vagrant](http://www.vagrantup.com/) >= 1.3.5
   - [Vagrant::Hostsupdater](https://github.com/cogitatio/vagrant-hostsupdater) >= 0.0.10
 - [Packer](http://www.packer.io/)
