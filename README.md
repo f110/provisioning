@@ -10,7 +10,25 @@ Fedora17 はサポートが切れているのでFedora 19 にしました
 
 # Ruby
 
-2.0 系 (Fedora19 のruby パッケージが2.0 なので)
+2.0.0-p0 (Fedora19 のパッケージではなくrbenv でビルドしている)
+
+ホストマシンのruby も2.0 系にしておく
+
+## rbenv
+
+install rbenv and ruby-build ( SEE ALSO: https://github.com/sstephenson/rbenv#installation )
+
+    $ git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
+    $ echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.zshrc
+    $ echo 'eval "$(rbenv init -)"' >> ~/.zshrc
+    $ git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+    $ exec $SHELL -l
+
+build 2.0.0-p0
+
+    $ rbenv install 2.0.0-p0
+    $ rbenv rehash
+    $ rbenv global 2.0.0-p0
 
 # HOW TO USE
 
@@ -24,29 +42,32 @@ Fedora17 はサポートが切れているのでFedora 19 にしました
     $ bundle exec knife solo cook asparagus
 
 vagrant のbox も自分で作成する場合は以下。
+特に理由がない限りbox を自分で作成する必要はない。
 
     $ cd box/Fedora19-x86_64
     $ packer build template.json
     $ vagrant box add fedora19 ./Fedora19.box
 
-# 仮想マシンの起動
+## 仮想マシンの起動
 
-vagrant の使い方を参照されたし
+SEE ALSO: http://docs.vagrantup.com/v2/cli/up.html
 
     $ vagrant up
 
-# 仮想マシンにSSH
+## 仮想マシンにSSH
 
-vagrant の使い方を参照されたし
+SEE ALSO: http://docs.vagrantup.com/v2/cli/ssh.html
 
     $ vagrant ssh
 
-ssh コマンドで接続したければ
+ssh コマンドで接続したければ ( SEE ALSO: http://docs.vagrantup.com/v2/cli/ssh_config.html )
 
     $ vagrant ssh-config --host asparagus >> ~/.ssh/config
     $ ssh asparagus
 
-# 環境を壊したら
+## 環境を壊したら
+
+SEE ALSO: http://docs.vagrantup.com/v2/cli/destroy.html
 
     $ vagrant destroy
 
@@ -57,6 +78,7 @@ ssh コマンドで接続したければ
 1. VirtualBox は4.3.0 以上を必ず用いること。4.2 ではFedora19 で共有フォルダが動作しない。
 1. vm のホスト名は変更できない(host 名を変えた場合は`chef/nodes/`以下も適切に編集すること)
 1. Vagrat::Hostupdater は必須ではないがあったほうが圧倒的に便利。vm のホスト名を /etc/hosts に書いてくれる
+1. ホストマシンのbundler がruby 2.0 を使うようにする
 
 # Depends on
 
