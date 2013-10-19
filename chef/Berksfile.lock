@@ -1,16 +1,7 @@
 {
   "sources": {
-    "mysql": {
-      "locked_version": "3.0.12"
-    },
     "nginx": {
       "locked_version": "2.0.0"
-    },
-    "openssl": {
-      "locked_version": "1.1.0"
-    },
-    "build-essential": {
-      "locked_version": "1.4.2"
     },
     "apt": {
       "locked_version": "2.2.1"
@@ -20,6 +11,9 @@
     },
     "rsyslog": {
       "locked_version": "1.9.0"
+    },
+    "build-essential": {
+      "locked_version": "1.4.2"
     },
     "ohai": {
       "locked_version": "1.1.12"
