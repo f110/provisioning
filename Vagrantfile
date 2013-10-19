@@ -2,7 +2,7 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
-  config.vm.box = "fedora17"
+  config.vm.box = "fedora19"
   config.vm.hostname = "asparagus.local"
 
   # config.vm.box_url = "http://domain.com/path/to/above.box"
