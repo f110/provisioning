@@ -4,3 +4,7 @@ template "/etc/supervisord.d/dev-app.ini" do
   owner "root"
   group "root"
 end
+
+execute 'supervisorctl update' do
+  user 'root'
+end

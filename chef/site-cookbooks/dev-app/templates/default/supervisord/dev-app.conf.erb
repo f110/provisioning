@@ -8,6 +8,7 @@ autorestart = true
 startsecs = 5
 
 command=bundle exec ruby app.rb
+environment=PATH="/sbin:/bin:/usr/bin:/usr/local/bin"
 numprocs = 1
 priority = 900
 stdout_logfile_maxbytes = 10MB
