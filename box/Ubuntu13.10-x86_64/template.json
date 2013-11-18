@@ -1,0 +1,62 @@
+{
+    "builders": [{
+        "type": "virtualbox",
+        "vm_name": "ubuntu13.10",
+        "guest_os_type": "Ubuntu_64",
+        "boot_wait": "5s",
+        "iso_url": "http://ftp.jaist.ac.jp/pub/Linux/ubuntu-releases/saucy/ubuntu-13.10-server-amd64.iso",
+        "iso_checksum": "2bead0f1f451734461ff88f913f4b02ba9e873b15f097a5c231bdb3763ea42e3",
+        "iso_checksum_type": "sha256",
+        "ssh_username": "vagrant",
+        "ssh_password": "vagrant",
+        "shutdown_command": "echo '/sbin/halt -h -p' > shutdown.sh; echo 'vagrant'|sudo -S sh 'shutdown.sh'",
+        "ssh_wait_timeout": "10m",
+        "disk_size": 10240,
+        "ssh_port": 22,
+        "boot_command": [
+            "<esc><esc><enter><wait>",
+            "/install/vmlinuz noapic preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg ",
+            "debian-installer=en_US auto locale=en_US kbd-chooser/method=us ",
+            "hostname={{ .Name }} ",
+            "fb=false debconf/frontend=noninteractive ",
+            "keyboard-configuration/modelcode=SKIP keyboard-configuration/layout=USA keyboard-configuration/variant=USA console-setup/ask_detect=false ",
+            "initrd=/install/initrd.gz -- <enter>"
+        ],
+        "vboxmanage": [
+            [
+                "modifyvm",
+                "{{.Name}}",
+                "--memory",
+                "1024"
+            ],
+            [
+                "modifyvm",
+                "{{.Name}}",
+                "--cpus",
+                "1"
+            ]
+        ],
+        "guest_additions_path": "VBoxGuestAdditions.iso",
+        "virtualbox_version_file": ".vbox_version",
+        "http_directory": "./http/"
+    }],
+    "provisioners": [{
+        "type": "shell",
+        "scripts": [
+            "./scripts/base.sh",
+            "./scripts/vagrant.sh",
+            "./scripts/vmtools.sh",
+            "./scripts/chef.sh",
+            "./scripts/cleanup.sh"
+        ],
+        "override": {
+            "virtualbox": {
+                "execute_command": "echo 'vagrant'|sudo -S sh '{{.Path}}'"
+            }
+        }
+    }],
+    "post-processors": [{
+        "type": "vagrant",
+        "output": "./ubuntu-13.10.box"
+    }]
+}
