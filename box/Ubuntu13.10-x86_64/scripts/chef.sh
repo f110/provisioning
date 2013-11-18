@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 curl -L https://www.opscode.com/chef/install.sh | sudo bash
 
 echo 'export PATH="/opt/chef/embedded/bin:$PATH"' >> /etc/profile
